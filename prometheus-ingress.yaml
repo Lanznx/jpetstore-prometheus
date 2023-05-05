@@ -7,11 +7,11 @@ metadata:
   name: prometheus-ui
   namespace: monitoring
   annotations:
-    kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: traefik
 spec:
   rules:
   # Use the host you used in your kubernetes Ingress Configurations
-  - host: prometheus.example.com
+  - host: jpetstore.cerana.tech
     http:
       paths:
       - backend:
@@ -19,7 +19,7 @@ spec:
             name: prometheus-service
             port:
               number: 8080
-        path: /
+        path: /prometheus
         pathType: Prefix
   tls:
   - hosts: 
